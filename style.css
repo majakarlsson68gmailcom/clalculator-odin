@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main-container{
+    padding: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    width: 400px;
+    background-color: rgb(44, 45, 53);
+}
+
+.input-display {
+    border: solid 1px black;
+    padding: 20px 15px;
+    border-radius: 10px;
+    background-color: rgb(79, 80, 88);
+    color: white;
+    height: 30px;
+}
+.input-display span{
+    font-size: 2rem;
+}
+
+.button-container{
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 5px;
+   padding: 5px;
+   width: 400px;
+   height: 500px;
+   box-sizing: border-box;
+   margin-top: 10px;
+}
+
+.num-btn{
+    font-size: 1.5rem;
+    color: white;
+    background-color: rgb(73, 79, 86);
+    border-radius: 4px;
+    border: 1px solid rgb(140, 140, 156);
+}
+.btn-zero{
+    grid-column: span 2;
+}
+.operator-btn{
+    font-size: 2rem;
+    font-weight: 500;
+    border: 1px solid rgb(140, 140, 156);
+    border-radius: 4px;
+    background-color: rgb(58, 58, 67);
+    color: rgb(214, 139, 0);
+}
+.operator-btn.clear{
+    grid-column: span 2;
+    color: white;
+}
+.operator-btn.delete {
+    color: white;
+    font-size: 1.3rem;
+    grid-column: span 1;
+}
+.operator-btn#equal {
+    grid-column: span 2;
+}
+.spacer{
+    grid-column: span 3;
+}
