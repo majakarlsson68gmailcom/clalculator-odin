@@ -45,7 +45,7 @@ buttons.forEach(button => {
             b = Number(display.value)
         }
 
-        console.log(a, b)
+    
 
         if(button.value === "equal"){
 
@@ -57,9 +57,16 @@ buttons.forEach(button => {
                 case "−":
                 display.value = subtract(a, b);
                 break;
+
+                case "×":
+                    display.value = multiply(a, b);
+                    break;
+
+                case "÷":
+                    display.value = divide(a, b);
+                    break;
             default:
         }
-
     }
         
       
