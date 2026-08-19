@@ -51,11 +51,11 @@ buttons.forEach(button => {
 
             switch (operator) {
                 case "+":
-                console.log(addNums(a, b));
+                display.value = addNums(a, b);
                 break;
 
                 case "−":
-                subtract(a, b);
+                display.value = subtract(a, b);
                 break;
             default:
         }
