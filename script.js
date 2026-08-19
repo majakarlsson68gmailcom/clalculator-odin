@@ -23,6 +23,7 @@ buttons.forEach(button => {
 
         
         if (button.value === "number" && !isOperatorClicked){
+            display.value = "";
             display.value += number;  
 
             a = Number(display.value);
@@ -77,9 +78,12 @@ buttons.forEach(button => {
                     break;
             default:
         }
-    }
+        isOperatorClicked = false;
+        a = Number(display.value)
         
-      
+    }
+       
+    
 
     });
 
