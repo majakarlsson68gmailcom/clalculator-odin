@@ -15,30 +15,42 @@ const multiplyButton = document.getElementById("divide");
 let a = 0;
 let b = 0;
 let sum = 0;
+let isOperatorClicked = false;
 
 buttons.forEach(button => {
 
     button.addEventListener("click", () => {
         
-        if (button.value === "number"){
-            let number = button.textContent;
-            display.value += number;
-            
-
-        } else if (button.value !== "number"){
-            let operator = button.textContent;
-            a = Number(display.value);
-            display.value += operator;
-        }
         
-        console.log(a)
+        if (button.value === "number" && !isOperatorClicked){
+    
+            let number = button.textContent;
+            display.value += number;  
+
+            a = Number(display.value);
+
+        } 
+
+        if (button.value !== "number"){
+            isOperatorClicked = true;
+            display.value = "";
+        }
+
+
+        if (button.value === "number" && isOperatorClicked){
+            number = button.textContent;
+            display.value += number; 
+            b = Number(display.value)
+        
+        }
+
+        console.log(isOperatorClicked)
+        console.log(a, b)
 
         
     });
 
 });
-
-
 
 
 function addNums(a, b){
