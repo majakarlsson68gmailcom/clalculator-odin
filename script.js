@@ -16,38 +16,54 @@ let a = 0;
 let b = 0;
 let sum = 0;
 let isOperatorClicked = false;
+let operator;
 
 buttons.forEach(button => {
 
     button.addEventListener("click", () => {
+        let number = button.textContent;
         
         
         if (button.value === "number" && !isOperatorClicked){
-    
-            let number = button.textContent;
             display.value += number;  
 
             a = Number(display.value);
-
         } 
 
-        if (button.value !== "number"){
+        if (button.value !== "number" && button.value !== "equal"){
+
+            operator = button.textContent;
             isOperatorClicked = true;
             display.value = "";
+            console.log(operator)
         }
 
-
         if (button.value === "number" && isOperatorClicked){
+            
             number = button.textContent;
             display.value += number; 
             b = Number(display.value)
-        
         }
 
-        console.log(isOperatorClicked)
         console.log(a, b)
 
+        if(button.value === "equal"){
+
+            switch (operator) {
+                case "+":
+                console.log(addNums(a, b));
+                break;
+
+                case "−":
+                subtract(a, b);
+                break;
+            default:
+        }
+
+    }
         
+      
+
     });
 
 });
