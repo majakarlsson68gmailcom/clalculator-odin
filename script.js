@@ -6,12 +6,6 @@
 const buttons = document.querySelectorAll("button");
 const display = document.querySelector("input");
 
-// Operator knappar
-const addButton = document.getElementById("add");
-const subButton = document.getElementById("subtract");
-const divideButton = document.getElementById("divide");
-const multiplyButton = document.getElementById("divide");
-
 // Variabler för uträkning
 let a = 0;
 let b = 0;
@@ -27,7 +21,6 @@ buttons.forEach(button => {
     button.addEventListener("click", (event) => {
         let number = button.textContent;
 
-        console.log(operators.includes(button.value))
         
         if (button.value === "number" && !isOperatorClicked){
             display.value += number;  
@@ -47,6 +40,7 @@ buttons.forEach(button => {
             number = button.textContent;
             display.value += number; 
             b = Number(display.value)
+
         }
 
         if (event.target.classList.contains("delete")){
@@ -54,10 +48,17 @@ buttons.forEach(button => {
             display.value = deleteText
         }
 
+         if (event.target.classList.contains("clear")){
+            display.value = "";
+            b = 0;
+            a = 0;
+            isOperatorClicked = false;
+        }
+
     
 
         if(button.value === "equal"){
-
+            console.log("a:", a, "b:", b, "operator:", operator)
             switch (operator) {
                 case "+":
                 display.value = addNums(a, b);
@@ -99,3 +100,4 @@ function divide(a, b){
 function multiply(a, b){
     return a * b;
 }
+
