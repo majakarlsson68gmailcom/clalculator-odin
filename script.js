@@ -1,6 +1,7 @@
 //Hämta knapparna och sätt eventlyssnare
 // visa i span elementen vilken knapp som tryckts på
 
+
 // variabler för knappar och display
 const buttons = document.querySelectorAll("button");
 const display = document.querySelector("input");
@@ -19,10 +20,14 @@ let isOperatorClicked = false;
 let operator;
 
 buttons.forEach(button => {
+   
+    const operators = [ "add", "subtract", "multi", "divide" ];
+    
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
         let number = button.textContent;
-        
+
+        console.log(operators.includes(button.value))
         
         if (button.value === "number" && !isOperatorClicked){
             display.value += number;  
@@ -30,8 +35,7 @@ buttons.forEach(button => {
             a = Number(display.value);
         } 
 
-        if (button.value !== "number" && button.value !== "equal"){
-
+        if (operators.includes(button.value)){
             operator = button.textContent;
             isOperatorClicked = true;
             display.value = "";
@@ -43,6 +47,11 @@ buttons.forEach(button => {
             number = button.textContent;
             display.value += number; 
             b = Number(display.value)
+        }
+
+        if (event.target.classList.contains("delete")){
+            let deleteText = display.value.slice(0, -1)
+            display.value = deleteText
         }
 
     
