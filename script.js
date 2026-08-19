@@ -3,7 +3,7 @@
 
 // variabler för knappar och display
 const buttons = document.querySelectorAll("button");
-const display = document.querySelector("span");
+const display = document.querySelector("input");
 
 // Operator knappar
 const addButton = document.getElementById("add");
@@ -16,20 +16,24 @@ let a = 0;
 let b = 0;
 let sum = 0;
 
-
 buttons.forEach(button => {
 
     button.addEventListener("click", () => {
-
-        let numbers = button.textContent
-        display.textContent += numbers;
         
-         a = Number(display.textContent)
-        console.log(typeof a)
+        if (button.value === "number"){
+            let number = button.textContent;
+            display.value += number;
+            
+
+        } else if (button.value !== "number"){
+            let operator = button.textContent;
+            a = Number(display.value);
+            display.value += operator;
+        }
+        
+        console.log(a)
 
         
-        console.log(sum)
-
     });
 
 });
